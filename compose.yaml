@@ -1,0 +1,7 @@
+﻿services:
+  directoryservice.core:
+    image: directoryservice.core
+    build:
+      context: .
+      dockerfile: DirectoryService.Core/Dockerfile
+
