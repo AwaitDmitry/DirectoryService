@@ -1,27 +1,14 @@
+using DirectoryService.Core.Configuration;
+using DirectoryService.Core.EndpointsSettings;
+using DirectoryService.Core.Features.Health;
 using Microsoft.OpenApi;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
-
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Directory Service",
-        Version = "v1",
-        Contact = new OpenApiContact
-        {
-            Name = "AwaitDmitry",
-        }
-    });
-});
+builder.Services.AddConfiguration(builder.Configuration);
 
 WebApplication app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
-
-app.MapGet("/test", () => "Hello World!");
+app.Configure();
 
 app.Run();
