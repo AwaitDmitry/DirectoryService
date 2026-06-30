@@ -12,7 +12,7 @@ COPY ["DirectoryService.Contracts/DirectoryService.Contracts.csproj", "Directory
 COPY ["DirectoryService.Domain/DirectoryService.Domain.csproj", "DirectoryService.Domain/"]
 COPY ["DirectoryService.Core/DirectoryService.Core.csproj", "DirectoryService.Core/"]
 COPY ["Directory.Build.props", "Directory.Build.props"]
-COPY ["Directory.Package.props", "Directory.Package.props"]
+COPY ["Directory.Packages.props", "Directory.Packages.props"]
 
 RUN dotnet restore "DirectoryService.Web/DirectoryService.Web.csproj"
 COPY . .
