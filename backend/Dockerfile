@@ -7,16 +7,16 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/DirectoryService.Web/DirectoryService.Web.csproj", "src/DirectoryService.Web/"]
-COPY ["src/DirectoryService.Contracts/DirectoryService.Contracts.csproj", "src/DirectoryService.Contracts/"]
-COPY ["src/DirectoryService.Domain/DirectoryService.Domain.csproj", "src/DirectoryService.Domain/"]
-COPY ["src/DirectoryService.Core/DirectoryService.Core.csproj", "src/DirectoryService.Core/"]
+COPY ["DirectoryService.Web/DirectoryService.Web.csproj", "DirectoryService.Web/"]
+COPY ["DirectoryService.Contracts/DirectoryService.Contracts.csproj", "DirectoryService.Contracts/"]
+COPY ["DirectoryService.Domain/DirectoryService.Domain.csproj", "DirectoryService.Domain/"]
+COPY ["DirectoryService.Core/DirectoryService.Core.csproj", "DirectoryService.Core/"]
 COPY ["Directory.Build.props", "Directory.Build.props"]
 COPY ["Directory.Package.props", "Directory.Package.props"]
 
-RUN dotnet restore "src/DirectoryService.Web/DirectoryService.Web.csproj"
+RUN dotnet restore "DirectoryService.Web/DirectoryService.Web.csproj"
 COPY . .
-WORKDIR "/src/src/DirectoryService.Web"
+WORKDIR "/DirectoryService.Web"
 RUN dotnet build "./DirectoryService.Web.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
