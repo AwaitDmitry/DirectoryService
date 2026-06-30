@@ -28,7 +28,7 @@ public sealed class CheckHandler
 
     public Task<IResult> Handle()
     {
-        _logger.LogInformation("Health checked");
+        _logger.LogDebug("Health checked");
         return Task.FromResult(Results.Ok());
     }
 }
