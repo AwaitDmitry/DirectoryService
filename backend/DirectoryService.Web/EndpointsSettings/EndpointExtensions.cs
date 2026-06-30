@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
+using DirectoryService.Core;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace DirectoryService.Core.EndpointsSettings;
+namespace DirectoryService.Web.EndpointsSettings;
 
 public static class EndpointExtensions
 {

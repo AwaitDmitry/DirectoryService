@@ -1,15 +1,19 @@
-﻿using DirectoryService.Core.EndpointsSettings;
+﻿using DirectoryService.Core;
 using DirectoryService.Core.Features.Health;
+using DirectoryService.Web.EndpointsSettings;
 using Microsoft.OpenApi;
+using Serilog;
+using Serilog.Exceptions;
 
-namespace DirectoryService.Core.Configuration;
+namespace DirectoryService.Web.Configuration;
 
 public static class DependencyInjectionExtensions
 {
     public static IServiceCollection AddConfiguration(this IServiceCollection services, IConfiguration configuration)
     {
         return services
-            .AddEndpoints(typeof(Program).Assembly)
+            .AddSerilogLogging(configuration)
+            .AddEndpoints(typeof(IEndpoint).Assembly)
             .AddOpenApiSpec()
             .AddScoped<CheckHandler>();
     }
@@ -30,6 +34,18 @@ public static class DependencyInjectionExtensions
                 }
             });
         });
+
+        return services;
+    }
+
+    private static IServiceCollection AddSerilogLogging(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddSerilog((sp, lc) => lc
+            .ReadFrom.Configuration(configuration)
+            .ReadFrom.Services(sp)
+            .Enrich.FromLogContext()
+            .Enrich.WithExceptionDetails()
+            .Enrich.WithProperty("ServiceName", "DirectoryService"));
 
         return services;
     }
