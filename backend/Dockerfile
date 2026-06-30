@@ -9,14 +9,14 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["DirectoryService.Web/DirectoryService.Web.csproj", "DirectoryService.Web/"]
 COPY ["DirectoryService.Contracts/DirectoryService.Contracts.csproj", "DirectoryService.Contracts/"]
-COPY ["DirectoryService.Domain/DirectoryService.Domain.csproj", "DirectoryService.Domain/"]
 COPY ["DirectoryService.Core/DirectoryService.Core.csproj", "DirectoryService.Core/"]
+COPY ["DirectoryService.Domain/DirectoryService.Domain.csproj", "DirectoryService.Domain/"]
 COPY ["Directory.Build.props", "Directory.Build.props"]
 COPY ["Directory.Packages.props", "Directory.Packages.props"]
 
 RUN dotnet restore "DirectoryService.Web/DirectoryService.Web.csproj"
 COPY . .
-WORKDIR "/DirectoryService.Web"
+WORKDIR "/src/DirectoryService.Web"
 RUN dotnet build "./DirectoryService.Web.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
