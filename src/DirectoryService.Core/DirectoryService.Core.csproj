@@ -1,20 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
-        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" />
-        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" />
-        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" />
-    </ItemGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\DirectoryService.Contracts\DirectoryService.Contracts.csproj" />
-      <ProjectReference Include="..\DirectoryService.Domain\DirectoryService.Domain.csproj" />
-    </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+  
+  <ItemGroup>
+    <FrameWorkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
 
 </Project>

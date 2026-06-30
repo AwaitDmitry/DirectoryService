@@ -1,6 +1,5 @@
-using DirectoryService.Core.Configuration;
-using DirectoryService.Core.EndpointsSettings;
-using DirectoryService.Core.Features.Health;
+using DirectoryService.Web.Configuration;
+using DirectoryService.Web.EndpointsSettings;
 using Microsoft.OpenApi;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);

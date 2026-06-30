@@ -1,10 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Core", "src\DirectoryService.Core\DirectoryService.Core.csproj", "{E5B41CBF-6163-49AC-9E35-815C98327E22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Web", "src\DirectoryService.Web\DirectoryService.Web.csproj", "{E5B41CBF-6163-49AC-9E35-815C98327E22}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D05BC51B-390C-4130-96ED-2F6C679ECE59}"
 	ProjectSection(SolutionItems) = preProject
-		compose.yaml = compose.yaml
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Domain", "src\DirectoryService.Domain\DirectoryService.Domain.csproj", "{C1CC6AE9-4949-43E0-A655-15C9E2E8935F}"
@@ -12,6 +13,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Infrastructure.Postgres", "src\DirectoryService.Infrastructure.Postgres\DirectoryService.Infrastructure.Postgres.csproj", "{781B6990-53A0-451B-AF58-4B5B91F2D972}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Contracts", "src\DirectoryService.Contracts\DirectoryService.Contracts.csproj", "{DECCE4D4-CB7C-42CD-8987-C6CF66367658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService.Core", "src\DirectoryService.Core\DirectoryService.Core.csproj", "{EF3ACDA6-9E36-4FC8-9A6E-A810BEB36762}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,5 +38,9 @@ Global
 		{DECCE4D4-CB7C-42CD-8987-C6CF66367658}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DECCE4D4-CB7C-42CD-8987-C6CF66367658}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DECCE4D4-CB7C-42CD-8987-C6CF66367658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF3ACDA6-9E36-4FC8-9A6E-A810BEB36762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF3ACDA6-9E36-4FC8-9A6E-A810BEB36762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF3ACDA6-9E36-4FC8-9A6E-A810BEB36762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF3ACDA6-9E36-4FC8-9A6E-A810BEB36762}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

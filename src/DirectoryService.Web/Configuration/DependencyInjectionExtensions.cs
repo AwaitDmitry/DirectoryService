@@ -1,15 +1,16 @@
-﻿using DirectoryService.Core.EndpointsSettings;
+﻿using DirectoryService.Core;
 using DirectoryService.Core.Features.Health;
+using DirectoryService.Web.EndpointsSettings;
 using Microsoft.OpenApi;
 
-namespace DirectoryService.Core.Configuration;
+namespace DirectoryService.Web.Configuration;
 
 public static class DependencyInjectionExtensions
 {
     public static IServiceCollection AddConfiguration(this IServiceCollection services, IConfiguration configuration)
     {
         return services
-            .AddEndpoints(typeof(Program).Assembly)
+            .AddEndpoints(typeof(IEndpoint).Assembly)
             .AddOpenApiSpec()
             .AddScoped<CheckHandler>();
     }

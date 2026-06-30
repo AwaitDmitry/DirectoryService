@@ -1,6 +1,6 @@
-﻿using DirectoryService.Core.EndpointsSettings;
+﻿using DirectoryService.Web.EndpointsSettings;
 
-namespace DirectoryService.Core.Configuration;
+namespace DirectoryService.Web.Configuration;
 
 public static class AppExtensions
 {
