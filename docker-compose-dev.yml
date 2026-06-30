@@ -1,4 +1,12 @@
 ﻿services:
+  directory-service:
+    container_name: directory-service
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    restart: always
   seq:
     image: datalust/seq:latest
     container_name: seq
