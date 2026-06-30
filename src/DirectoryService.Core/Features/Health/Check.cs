@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Logging;
 
 namespace DirectoryService.Core.Features.Health;
 
@@ -18,9 +19,16 @@ public sealed class CheckEndpoint : IEndpoint
 
 public sealed class CheckHandler
 {
-    public async Task<IResult> Handle()
+    private readonly ILogger<CheckHandler> _logger;
+
+    public CheckHandler(ILogger<CheckHandler> logger)
     {
-        await Task.Delay(TimeSpan.FromSeconds(1));
-        return Results.Ok();
+        _logger = logger;
+    }
+
+    public Task<IResult> Handle()
+    {
+        _logger.LogInformation("Health checked");
+        return Task.FromResult(Results.Ok());
     }
 }

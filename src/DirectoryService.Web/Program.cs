@@ -1,13 +1,37 @@
+using System.Globalization;
 using DirectoryService.Web.Configuration;
-using DirectoryService.Web.EndpointsSettings;
-using Microsoft.OpenApi;
+using Serilog;
 
-WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.Console(formatProvider: CultureInfo.InvariantCulture)
+    .CreateBootstrapLogger();
 
-builder.Services.AddConfiguration(builder.Configuration);
+try
+{
+    Log.Information("Starting web application");
 
-WebApplication app = builder.Build();
+    WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-app.Configure();
+    builder.Services.AddConfiguration(builder.Configuration);
 
-app.Run();
+    string enviroment = builder.Environment.EnvironmentName;
+
+    builder.Configuration.AddJsonFile($"appsettings.{enviroment}.json", true, true);
+
+    builder.Configuration.AddEnvironmentVariables();
+
+    WebApplication app = builder.Build();
+
+    app.Configure();
+
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Application terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
